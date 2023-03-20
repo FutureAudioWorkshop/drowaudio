@@ -126,7 +126,7 @@ void SoundTouchAudioSource::readNextBufferChunk()
     source->getNextAudioBlock (info);
     nextReadPos += info.numSamples;
 
-    soundTouchProcessor.writeSamples ((float**) buffer.getArrayOfWritePointers(), 
+    soundTouchProcessor.writeSamples ((const float**) buffer.getArrayOfWritePointers(), 
                                       buffer.getNumChannels(), info.numSamples);
 }
 

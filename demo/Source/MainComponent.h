@@ -53,12 +53,11 @@ public:
     /** @internal */
     void textEditorTextChanged (juce::TextEditor& editor) override;
     /** @internal */
-    void audioDeviceIOCallbackWithContext (const float* const* inputChannelData,
-                                           int numInputChannels,
-                                           float* const* outputChannelData,
-                                           int numOutputChannels,
-                                           int numSamples,
-                                           const juce::AudioIODeviceCallbackContext& context) override;
+    void audioDeviceIOCallback (const float** inputChannelData,
+                                                       int numInputChannels,
+                                                       float** outputChannelData,
+                                                       int numOutputChannels,
+                                                       int numSamples) override;
     /** @internal */
     void audioDeviceAboutToStart (juce::AudioIODevice* device) override;
     /** @internal */

@@ -90,7 +90,7 @@ public:
         be required as input compared to output (think of a time stretch). You can find
         this ratio using getNumSamplesRequiredRatio().
     */
-    void writeSamples (float** sourceChannelData, int numChannels, int numSamples, int startSampleOffset = 0);
+    void writeSamples (const float** sourceChannelData, int numChannels, int numSamples, int startSampleOffset = 0);
 
     /** Reads out processed samples.
 

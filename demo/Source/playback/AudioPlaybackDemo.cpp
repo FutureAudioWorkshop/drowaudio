@@ -127,7 +127,7 @@ AudioPlaybackDemo::AudioPlaybackDemo (AudioFilePlayerExt& audioFilePlayer_,
 
     addAndMakeVisible (&distortionDemo);
 
-    backgroundThread.startThread (juce::Thread::Priority::background);
+    backgroundThread.startThread ();
 }
 
 void AudioPlaybackDemo::resized()

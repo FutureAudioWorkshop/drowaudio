@@ -105,7 +105,7 @@ MainComponent::MainComponent()
 
     meterThread.addTimeSliceClient (&meterL);
     meterThread.addTimeSliceClient (&meterR);
-    meterThread.startThread (juce::Thread::Priority::low);
+    meterThread.startThread ();
     
     addAndMakeVisible (&searchBox);
     searchBox.addListener (this);
@@ -190,19 +190,17 @@ void MainComponent::textEditorTextChanged (juce::TextEditor& editor)
     }
 }
 
-void MainComponent::audioDeviceIOCallbackWithContext (const float* const* inputChannelData,
-                                                      int numInputChannels,
-                                                      float* const* outputChannelData,
-                                                      int numOutputChannels,
-                                                      int numSamples,
-                                                      const juce::AudioIODeviceCallbackContext& context)
+void MainComponent::audioDeviceIOCallback (const float** inputChannelData,
+                                            int numInputChannels,
+                                            float** outputChannelData,
+                                            int numOutputChannels,
+                                            int numSamples)
 {
-    audioSourcePlayer.audioDeviceIOCallbackWithContext (inputChannelData,
-                                                        numInputChannels,
-                                                        outputChannelData,
-                                                        numOutputChannels,
-                                                        numSamples,
-                                                        context);
+    audioSourcePlayer.audioDeviceIOCallback(inputChannelData,
+                                            numInputChannels,
+                                            outputChannelData,
+                                            numOutputChannels,
+                                            numSamples);
 
     if (fftDemo->isCurrentlyShowing) 
         fftDemo->processBlock (outputChannelData[0], numSamples);

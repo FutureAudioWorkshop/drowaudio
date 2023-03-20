@@ -53,7 +53,7 @@ void SoundTouchProcessor::initialise (int numChannels, double sampleRate)
     soundTouch.clear();
 }
 
-void SoundTouchProcessor::writeSamples (float** sourceChannelData, int numChannels, int numSamples, int startSampleOffset)
+void SoundTouchProcessor::writeSamples (const float** sourceChannelData, int numChannels, int numSamples, int startSampleOffset)
 {
     const int requiredBufferSize = numSamples * numChannels;
 
